@@ -1,0 +1,9 @@
+<div class="panel panel-default" *ngIf="area">
+    <div class="panel-heading">
+        <h4>{{area.gm_naam}} <button class="close" (click)="reset()"><span>&times;</span></button></h4>
+    </div>
+    <div class="panel-body">
+        <pre>{{area | json}}</pre>
+        <button class="btn btn-success pull-right" (click)="gotoDashboard()">Dashboard</button>
+    </div>
+</div>

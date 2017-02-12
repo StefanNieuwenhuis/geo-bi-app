@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Filter</h4></div>
+    <div class="panel-body">
+        <form #f="ngForm" novalidate>
+            <div class="form-group">
+                <label>Area name</label>
+                <input type="text" name="name" class="form-control" [value]="" [(ngModel)]="area.name" placeholder="Name of the area" />
+            </div>            
+            <div class="form-group">
+                <label>{{aant_inw.display}} <span class="badge">current: {{area.aant_inw | number}}</span></label>
+                <input type="range" name="aant_inw" [(ngModel)]="area.aant_inw" [min]="aant_inw.min" [max]="aant_inw.max" [step]="aant_inw.step" />
+            </div>
+            <div class="form-group">
+                <label>{{aantal_hh.display}} <span class="badge">current: {{area.aantal_hh | number}}</span></label>
+                <input type="range" name="aantal_hh" [(ngModel)]="area.aantal_hh" [min]="aantal_hh.min" [max]="aantal_hh.max" [step]="aantal_hh.step" />
+            </div>
+            <div class="form-group">
+                <label>{{bev_dichth.display}} <span class="badge">current: {{area.bev_dichth | number}}</span></label>
+                <input type="range" name="bev_dichth" [(ngModel)]="area.bev_dichth" [min]="bev_dichth.min" [max]="bev_dichth.max" [step]="bev_dichth.step" />
+            </div>
+            <div class="form-group">
+                <label>{{p_elek_tot.display}} <span class="badge">current: {{area.p_elek_tot | number}}</span></label>
+                <input type="range" name="p_elek_tot" [(ngModel)]="area.p_elek_tot" [min]="p_elek_tot.min" [max]="p_elek_tot.max" [step]="p_elek_tot.step" />
+            </div>
+            <button class="btn btn-default" (click)="save(f.valid, f.value)">Filter</button>
+            <button class="btn btn-danger" (click)="reset()">Reset</button>
+        </form>
+    </div>
+</div>
