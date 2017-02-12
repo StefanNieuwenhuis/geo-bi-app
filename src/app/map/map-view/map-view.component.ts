@@ -22,7 +22,6 @@ export class MapViewComponent implements OnInit {
     }).then(() => {
       this.esriLoader.loadModules(['esri/WebMap', 'esri/views/MapView'])
         .then(([WebMap, MapView]) => {
-          console.log(this.webmapId);
           this.webmap = new WebMap({
             portalItem: { id: this.webmapId }
           });
@@ -46,7 +45,7 @@ export class MapViewComponent implements OnInit {
     let layer = this.webmap.findLayerById('CBS_WijkenBuurten_2011_4172').findSublayerById(2);
     let query = layer.createQuery();
 
-    query.where = `aant_inw <= ${area.aant_inw} AND bev_dichth <= ${area.bev_dichth} AND p_elek_tot <= ${area.p_elek_tot}`;
+    query.where = `aant_inw <= ${area.aant_inw} AND aantal_hh <= ${area.aantal_hh} AND bev_dichth <= ${area.bev_dichth} AND p_elek_tot <= ${area.p_elek_tot}`;
     if (area.name) query.where += ` AND gm_naam LIKE '%${area.name}%'`;
 
     layer.definitionExpression = query.where;
