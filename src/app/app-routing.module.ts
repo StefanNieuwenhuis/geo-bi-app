@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'map', pathMatch: 'full' },
-
+  { path: 'area-detail/:id', loadChildren: './+area-detail/area-detail.module#AreaDetailModule' }
 ];
 
 @NgModule({
