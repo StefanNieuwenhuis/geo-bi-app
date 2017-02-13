@@ -1,9 +1,9 @@
 <div class="container-fluid" *ngIf="area">
-  <div class="row">
+  <!--<div class="row">
     <div class="col-xs-12">
       <pre>{{area | json}}</pre>
     </div>
-  </div>
+  </div>-->
   <div class="row">
     <div class="col-xs-3">
       <div class="panel panel-default">
@@ -44,6 +44,15 @@
           <p>{{area.opp_tot |number}}</p>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">
+      <chart [type]="bar" [data]="populationData" [options]="options"></chart>
+    </div>
+    <div class="col-xs-3">
+      <chart [type]="pie" [data]="areaData" [options]="options"></chart>
     </div>
   </div>
 </div>
