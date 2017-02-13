@@ -11,8 +11,8 @@ export class MapFilterComponent implements OnInit {
 
   aant_inw = { "display": "Population", "min": 0, "max": 900000, "step": 1000 };
   aantal_hh = { "display": "Households", "min": 0, "max": 435000, "step": 1000 };
-  bev_dichth = { "display": "Population density [per sq. km]", "min": 0, "max": 30000, "step": 100 };
-  p_elek_tot = { "display": "Power usage [kWh]", "min": 0, "max": 7500, "step": 10 };
+  bev_dichth = { "display": "Population density (per sq. km)", "min": 0, "max": 30000, "step": 100 };
+  p_elek_tot = { "display": "Avg. power usage (kWh)", "min": 0, "max": 7500, "step": 10 };
 
   @Output() onFilterChanged = new EventEmitter();
 

@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-heading" (click)="toggleOpen($event)">
+        <h2>
+            <p><span>{{heading}}</span></p>
+        </h2>
+    </div>
+    <div class="panel-collapse" [hidden]="!isOpen">
+        <div class="panel-body">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

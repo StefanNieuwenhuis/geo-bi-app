@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { MapModule } from './map/map.module';
 
 import { AppComponent } from './app.component';
@@ -11,7 +10,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
