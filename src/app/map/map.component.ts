@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
-import { MapViewComponent} from './map-view/map-view.component';
-import { MapDetailComponent} from './map-detail/map-detail.component';
-import {Area} from '../shared/area';
+import { MapViewComponent } from './map-view/map-view.component';
+import { MapDetailComponent } from './map-detail/map-detail.component';
+import { Area } from '../shared/area';
 
 @Component({
   selector: 'app-map',
@@ -18,18 +18,18 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
-  setActiveArea(area: Area){
+  setActiveArea(area: Area) {
     this.mapDetailComponent.area = area;
   }
 
-  onAreaChanged(event: Area){
+  onAreaChanged(event: Area) {
     this.setActiveArea(event);
   }
 
-  onFilterChanged(event: Area){
+  onFilterChanged(event: Area) {
     this.mapViewComponent.filter(event);
   }
 

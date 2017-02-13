@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Router} from '@angular/router';
 import { Area } from '../../shared/area';
 
 @Component({
@@ -9,9 +10,13 @@ import { Area } from '../../shared/area';
 export class MapDetailComponent implements OnInit {
   @Input() area: Area;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+
+  gotoDashboard(){
+     this.router.navigate(['/area-detail', this.area.objectid]);
   }
 
 }

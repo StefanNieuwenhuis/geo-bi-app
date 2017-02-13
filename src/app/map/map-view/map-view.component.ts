@@ -1,5 +1,7 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { EsriLoaderService } from 'angular2-esri-loader';
+import { DataService } from '../../shared/data.service';
+
 import { Area } from '../../shared/area';
 
 @Component({
@@ -13,8 +15,9 @@ export class MapViewComponent implements OnInit {
   view: any;
 
   @Input() webmapId: string;
+  @Output() onAreaChanged = new EventEmitter();
 
-  constructor(private esriLoader: EsriLoaderService, private elRef: ElementRef) { }
+  constructor(private esriLoader: EsriLoaderService, private elRef: ElementRef, private dataService:DataService) { }
 
   ngOnInit() {
     this.esriLoader.load({
@@ -37,8 +40,8 @@ export class MapViewComponent implements OnInit {
   }
 
   onViewClicked(event) {
-    let mapPoint = event.mapPoint;
-    //do call to api
+    let mapPoint = JSON.stringify({x:event.mapPoint.x, y:event.mapPoint.y});
+    this.dataService.getTownByLocation(mapPoint).subscribe(response => this.onAreaChanged.emit(response[0].attributes));
   }
 
   filter(area: Area) {
