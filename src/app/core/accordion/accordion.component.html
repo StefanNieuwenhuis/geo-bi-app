@@ -1,8 +1,8 @@
 <div class="panel panel-default">
     <div class="panel-heading" (click)="toggleOpen($event)">
-        <h2>
-            <p><span>{{heading}}</span></p>
-        </h2>
+        <h4>
+            <p><span>{{heading}}</span><span class="pull-right glyphicon" [class.glyphicon-chevron-down]="!isOpen" [class.glyphicon-chevron-up]="isOpen"></span></p>
+        </h4>
     </div>
     <div class="panel-collapse" [hidden]="!isOpen">
         <div class="panel-body">

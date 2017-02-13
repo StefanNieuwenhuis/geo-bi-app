@@ -23,7 +23,10 @@ export class AreaDetailComponent implements OnInit {
   populationData: Object;
   areaData: Object;
   ageData: Object;
+  civilStatusData: Object;
   powerData: Object;
+  lifeData: Object;
+  householdsData: Object;
 
   options = {
     responsive: true,
@@ -77,7 +80,7 @@ export class AreaDetailComponent implements OnInit {
           "datasets": [{
             "label": "Value",
             "data": [this.area.aant_man, this.area.aant_vrouw],
-            "backgroundColor": ['#0097AC', '#C0362C']
+            "backgroundColor": ['#D3D3D3', '#696969']
           }],
 
         };
@@ -88,7 +91,7 @@ export class AreaDetailComponent implements OnInit {
           "datasets": [{
             "label": "Value",
             "data": [this.area.opp_land, this.area.opp_water],
-            "backgroundColor": ['#668D3C', '#0097AC']
+            "backgroundColor": ['#D3D3D3', '#696969']
           }]
         };
 
@@ -108,7 +111,7 @@ export class AreaDetailComponent implements OnInit {
           "labels": ['Appartments', 'Mid-terrace houses', 'Corner houses', 'Semi-detached houses', 'Ranch houses', 'Unknown'],
           "datasets": [{
             "type": "line",
-            "label": "Avg. value",
+            "label": "Avg. total value",
             "data": [this.area.p_elek_tot, this.area.p_elek_tot, this.area.p_elek_tot, this.area.p_elek_tot, this.area.p_elek_tot, this.area.p_elek_tot],
             "fill": false,
             "backgroundColor": "red",
@@ -124,6 +127,32 @@ export class AreaDetailComponent implements OnInit {
           ]
         };
 
+        this.civilStatusData = {
+          "labels": ['Married', 'Unmarried', 'Divorced', 'Widowed'],
+          "datasets": [{
+            "label": "Value",
+            "data": [this.area.p_gehuwd, this.area.p_ongehuwd, this.area.p_gescheid, this.area.p_verweduw],
+            "backgroundColor": ['#D3D3D3', '#C0C0C0', '#A9A9A9', '#808080']
+          }]
+        };
+
+        this.lifeData = {
+          "labels": ["Birth", "Death"],
+          "datasets": [{
+            "label": "Value",
+            "data": [this.area.geboo_tot, this.area.sterft_tot],
+            "backgroundColor": ['#D3D3D3', '#696969']
+          }]
+        };
+
+        this.householdsData = {
+          "labels": ["One person households", "Households with kids", "Households without kids"],
+          "datasets":[{
+            "label": "Value",
+            "data": [this.area.p_eenp_hh, this.area.p_hh_m_k, this.area.p_hh_z_k],
+            "backgroundColor": ['#D3D3D3', '#C0C0C0', '#A9A9A9']
+          }]
+        };
       });
   }
 }

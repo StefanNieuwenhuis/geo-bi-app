@@ -1,40 +1,45 @@
 <div class="container-fluid" *ngIf="area">
   <div class="row">
     <h1>{{title}}</h1>
+    <p>Click on a topic to learn more</p>
   </div>
 
-  <div class="row">
-      <app-accordion heading="Population" [isOpen]="false">
-        <div class="col-xs-4">
-        <h4><strong>Male vs. Female</strong></h4>
+  <div class="panel-group">
+    <app-accordion heading="Population" [isOpen]="false">
+      <div class="col-xs-4">
+        <h4 class="text-center">Male vs. Female</h4>
         <chart [type]="horizontalBar" [data]="populationData" [options]="horizontalBarOptions"></chart>
-        </div>
-      </app-accordion>
-  </div>
-
-
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>Economy</h2>
-    </div>
-    <div class="col-xs-4">
-      <h4><strong>Age composition</strong></h4>
-      <chart [type]="bar" [data]="ageData" [options]="options"></chart>
-    </div>
-    <div class="col-xs-4">
-      <h4><strong>Power usage</strong></h4>
-      <chart [type]="bar" [data]="powerData" [options]="options"></chart>
-    </div>
-  </div>
-  <div class="row">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1>Land use</h1>
       </div>
-    </div>
-    <div class="col-xs-4">
-      <h4><strong>Land vs. Water</strong></h4>
-      <chart [type]="pie" [data]="areaData" [options]="barOptions"></chart>
-    </div>
+      <div class="col-xs-4">
+        <h4 class="text-center">Age composition</h4>
+        <chart [type]="bar" [data]="ageData" [options]="options"></chart>
+      </div>
+      <div class="col-xs-4">
+        <h4 class="text-center">Civil status</h4>
+        <chart [type]="bar" [data]="civilStatusData" [options]="options"></chart>
+      </div>
+      <div class="col-xs-4">
+        <h4 class="text-center">Birth vs. mortality rate (absolute)</h4>
+        <chart [type]="horizontalBar" [data]="lifeData" [options]="horizontalBarOptions"></chart>
+      </div>
+      <div class="col-xs-4">
+        <h4>Households composition</h4>
+        <chart [type]="pie" [data]="householdsData" [options]="barOptions" style="width: 75%; height: 50%;"></chart>
+      </div>
+    </app-accordion>
+
+    <app-accordion heading="Energy" [isOpen]="false">
+      <div class="col-xs-4">
+        <h4 class="text-center">Power usage</h4>
+        <chart [type]="bar" [data]="powerData" [options]="options"></chart>
+      </div>
+    </app-accordion>
+
+    <app-accordion heading="Land usage" [isOpen]="false">
+      <div class="col-xs-4">
+        <h4 class="text-center">Land vs. Water</h4>
+        <chart [type]="pie" [data]="areaData" [options]="barOptions"></chart>
+      </div>
+    </app-accordion>
   </div>
 </div>
