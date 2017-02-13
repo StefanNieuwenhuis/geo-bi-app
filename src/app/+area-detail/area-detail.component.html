@@ -5,8 +5,45 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
-      <h1>{{area.gm_naam}}</h1>
+    <div class="col-xs-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Population</h4>
+        </div>
+        <div class="panel-body">
+          <p>{{area.aant_inw | number}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Population density (per sq. km)</h4>
+        </div>
+        <div class="panel-body">
+          <p>{{area.bev_dichth | number}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Households</h4>
+        </div>
+        <div class="panel-body">
+          <p>{{area.aantal_hh | number}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Area (ha)</h4>
+        </div>
+        <div class="panel-body">
+          <p>{{area.opp_tot |number}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

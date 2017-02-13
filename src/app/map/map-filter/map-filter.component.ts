@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Area } from '../../shared/area';
+import { Filter } from '../../shared/filter';
 
 @Component({
   selector: 'app-map-filter',
@@ -7,7 +7,7 @@ import { Area } from '../../shared/area';
   styleUrls: ['./map-filter.component.css']
 })
 export class MapFilterComponent implements OnInit {
-  area: Area;
+  filter: Filter;
 
   aant_inw = { "display": "Population", "min": 0, "max": 900000, "step": 1000 };
   aantal_hh = { "display": "Households", "min": 0, "max": 435000, "step": 1000 };
@@ -19,7 +19,7 @@ export class MapFilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.area = {
+    this.filter = {
       name: null,
       aant_inw: 900000,
       aantal_hh: 435000,
@@ -28,20 +28,20 @@ export class MapFilterComponent implements OnInit {
     };
   }
 
-  save(isValid: boolean, f: Area): void {
+  save(isValid: boolean, f: Filter): void {
     if (!isValid) return;
     this.onFilterChanged.emit(f);
   }
 
   reset() {
-    this.area = {
+    this.filter = {
       name: null,
       aant_inw: 900000,
       aantal_hh: 435000,
       bev_dichth: 30000,
       p_elek_tot: 7500
     };
-    this.onFilterChanged.emit(this.area);
+    this.onFilterChanged.emit(this.filter);
   }
 
 

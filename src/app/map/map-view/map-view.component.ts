@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, EventEmitter, Input, Output } from '@ang
 import { EsriLoaderService } from 'angular2-esri-loader';
 import { DataService } from '../../shared/data.service';
 
-import { Area } from '../../shared/area';
+import { Filter } from '../../shared/filter';
 
 @Component({
   selector: 'app-map-view',
@@ -44,12 +44,12 @@ export class MapViewComponent implements OnInit {
     this.dataService.getTownByLocation(mapPoint).subscribe(response => this.onAreaChanged.emit(response[0].attributes));
   }
 
-  filter(area: Area) {
+  filter(filter: Filter) {
     let layer = this.webmap.findLayerById('CBS_WijkenBuurten_2011_4172').findSublayerById(2);
     let query = layer.createQuery();
 
-    query.where = `aant_inw <= ${area.aant_inw} AND aantal_hh <= ${area.aantal_hh} AND bev_dichth <= ${area.bev_dichth} AND p_elek_tot <= ${area.p_elek_tot}`;
-    if (area.name) query.where += ` AND gm_naam LIKE '%${area.name}%'`;
+    query.where = `aant_inw <= ${filter.aant_inw} AND aantal_hh <= ${filter.aantal_hh} AND bev_dichth <= ${filter.bev_dichth} AND p_elek_tot <= ${filter.p_elek_tot}`;
+    if (filter.name) query.where += ` AND gm_naam LIKE '%${filter.name}%'`;
 
     layer.definitionExpression = query.where;
     layer.queryFeatures(query);
