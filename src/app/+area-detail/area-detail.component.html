@@ -1,22 +1,24 @@
 <div class="container-fluid" *ngIf="area">
+  <div class="row"><h1>{{title}}</h1></div>
+
   <div class="row">
     <div class="col-xs-4">
       <h4><strong>Male vs. Female population</strong></h4>
-      <chart [type]="bar" [data]="populationData" [options]="options"></chart>
+      <chart [type]="horizontalBar" [data]="populationData" [options]="horizontalBarOptions"></chart>
     </div>
     <div class="col-xs-4">
       <h4><strong>Age composition</strong></h4>
       <chart [type]="bar" [data]="ageData" [options]="options"></chart>
     </div>
     <div class="col-xs-4">
-      <h4><strong>Power</strong></h4>
+      <h4><strong>Power usage</strong></h4>
       <chart [type]="bar" [data]="powerData" [options]="options"></chart>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-4">
       <h4><strong>Land vs. Water</strong></h4>
-      <chart [type]="pie" [data]="areaData" [options]="options"></chart>
+      <chart [type]="pie" [data]="areaData" [options]="barOptions"></chart>
     </div>
   </div>
 </div>

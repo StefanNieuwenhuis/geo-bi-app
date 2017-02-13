@@ -1,6 +1,6 @@
 export interface Area {
     objectid: number,
-    name: string,
+    gm_naam: string,
     aant_inw: number,
     aantal_hh: number,
     bev_dichth: number,    

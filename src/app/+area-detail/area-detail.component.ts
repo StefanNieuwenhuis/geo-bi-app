@@ -14,18 +14,48 @@ import { ChartModule } from 'angular2-chartjs';
 export class AreaDetailComponent implements OnInit {
   area: Area;
 
+  title: string;
+
   bar = 'bar';
   pie = 'pie';
+  horizontalBar = 'horizontalBar';
 
   populationData: Object;
   areaData: Object;
   ageData: Object;
   powerData: Object;
 
-  options = { 
-    responsive: true, 
-    maintainAspectRation: true, 
-    legend: {"display": false} 
+  options = {
+    responsive: true,
+    maintainAspectRation: true,
+    legend: { "display": false },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  };
+
+  barOptions = {
+    responsive: true,
+    maintainAspectRation: true,
+    legend: { "display": false }
+  };
+
+  horizontalBarOptions = {
+    responsive: true,
+    maintainAspectRation: true,
+    legend: { "display": false },
+    scales: {
+      xAxes: [{
+        stacked: true,
+      }],
+      yAxes: [{
+        stacked: true
+      }]
+    }
   };
 
   constructor(
@@ -39,6 +69,7 @@ export class AreaDetailComponent implements OnInit {
       .switchMap((params: Params) => this.dataService.getTownById(+params['id']))
       .subscribe((area: Area) => {
         this.area = area[0].attributes;
+        this.title = `${this.area.gm_naam} area details`;
 
         // population chart
         this.populationData = {
@@ -47,7 +78,8 @@ export class AreaDetailComponent implements OnInit {
             "label": "Value",
             "data": [this.area.aant_man, this.area.aant_vrouw],
             "backgroundColor": ['#0097AC', '#C0362C']
-          }]
+          }],
+
         };
 
         // area chart
