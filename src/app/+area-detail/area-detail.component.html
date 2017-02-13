@@ -1,3 +1,12 @@
-<p>
-  area-detail works!
-</p>
+<div class="container-fluid" *ngIf="area">
+  <div class="row">
+    <div class="col-xs-12">
+      <pre>{{area | json}}</pre>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{area.gm_naam}}</h1>
+    </div>
+  </div>
+</div>
