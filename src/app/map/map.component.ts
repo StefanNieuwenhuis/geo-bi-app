@@ -3,6 +3,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { MapViewComponent } from './map-view/map-view.component';
 import { MapDetailComponent } from './map-detail/map-detail.component';
 import { Area } from '../shared/area';
+import { Filter } from '../shared/filter';
 
 @Component({
   selector: 'app-map',
@@ -29,7 +30,7 @@ export class MapComponent implements OnInit {
     this.setActiveArea(event);
   }
 
-  onFilterChanged(event: Area) {
+  onFilterChanged(event: Filter) {
     this.mapViewComponent.filter(event);
   }
 
