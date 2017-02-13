@@ -19,7 +19,14 @@ export class AreaDetailComponent implements OnInit {
 
   populationData: Object;
   areaData: Object;
-  options = { responsive: true, maintainAspectRation: false };
+  ageData: Object;
+  powerData: Object;
+
+  options = { 
+    responsive: true, 
+    maintainAspectRation: true, 
+    legend: {"display": false} 
+  };
 
   constructor(
     private dataService: DataService,
@@ -36,7 +43,7 @@ export class AreaDetailComponent implements OnInit {
         // population chart
         this.populationData = {
           "labels": ["Male", "Female"],
-          datasets: [{
+          "datasets": [{
             "label": "Value",
             "data": [this.area.aant_man, this.area.aant_vrouw],
             "backgroundColor": ['#0097AC', '#C0362C']
@@ -46,12 +53,45 @@ export class AreaDetailComponent implements OnInit {
         // area chart
         this.areaData = {
           "labels": ["Land", "Water"],
-          datasets: [{
+          "datasets": [{
             "label": "Value",
             "data": [this.area.opp_land, this.area.opp_water],
-            "backgroundColor": ['#668D3C','#0097AC']
+            "backgroundColor": ['#668D3C', '#0097AC']
           }]
         };
+
+        // age charts
+        this.ageData = {
+          "labels": ['0-14', '15-24', '25-44', '45-64', '>65'],
+          "datasets": [{
+            "type": "bar",
+            "label": "Value",
+            "data": [this.area.p_00_14_jr, this.area.p_15_24_jr, this.area.p_25_44_jr, this.area.p_45_64_jr, this.area.p_65_eo_jr],
+            "backgroundColor": ['#D3D3D3', '#C0C0C0', '#A9A9A9', '#808080', '#696969']
+          }]
+        };
+
+        // power charts
+        this.powerData = {
+          "labels": ['Appartments', 'Mid-terrace houses', 'Corner houses', 'Semi-detached houses', 'Ranch houses', 'Unknown'],
+          "datasets": [{
+            "type": "line",
+            "label": "Avg. value",
+            "data": [this.area.p_elek_tot, this.area.p_elek_tot, this.area.p_elek_tot, this.area.p_elek_tot, this.area.p_elek_tot, this.area.p_elek_tot],
+            "fill": false,
+            "backgroundColor": "red",
+            "borderColor": "red",
+            "pointBorderColor": "red"
+          },
+          {
+            "type": "bar",
+            "label": "Value",
+            "data": [this.area.p_elek_app, this.area.p_elek_tus, this.area.p_elek_hoe, this.area.p_elek_21k, this.area.p_elek_vry, this.area.p_elek_onb],
+            "backgroundColor": ['#D3D3D3', '#C0C0C0', '#A9A9A9', '#808080', '#696969', '#778899']
+          }
+          ]
+        };
+
       });
   }
 
