@@ -11,7 +11,6 @@ import { Filter } from '../shared/models/filter';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  @ViewChild(MapViewComponent) mapViewComponent: MapViewComponent;
   @ViewChild(MapDetailComponent) mapDetailComponent: MapDetailComponent;
 
   webmapId = 'f896be9c355e4f17bcd78543d069f18f';
@@ -26,9 +25,5 @@ export class MapComponent implements OnInit {
 
   onAreaChanged(event: Area) {
     this.setActiveArea(event);
-  }
-
-  onFilterChanged(event: Filter) {
-    this.mapViewComponent.filter(event);
   }
 }

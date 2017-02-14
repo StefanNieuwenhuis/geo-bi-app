@@ -1,5 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Filter } from '../../shared/models/filter';
+
+import { FilterService } from '../../shared/services/filter.service';
 
 @Component({
   selector: 'app-map-filter',
@@ -14,22 +16,20 @@ export class MapFilterComponent implements OnInit {
   popDensity = { "display": "Population density (per sq. km)", "min": 0, "max": 30000, "step": 100 };
   avgPowerUsage = { "display": "Avg. power usage (kWh)", "min": 0, "max": 7500, "step": 10 };
 
-  @Output() onFilterChanged = new EventEmitter();
-
-  constructor() { }
+  constructor(private filterService: FilterService) { }
 
   ngOnInit() {
-    this.filter = new Filter(null, 900000, 435000, 30000, 7500);    
+    this.filter = new Filter(null, 900000, 435000, 30000, 7500);
   }
 
   save(isValid: boolean, f: Filter): void {
     if (!isValid) return;
-    this.onFilterChanged.emit(f);
+    this.filterService.updateFilter(f);
   }
 
   reset() {
-    this.filter = new Filter(null, 900000, 435000, 30000, 7500);    
-    this.onFilterChanged.emit(this.filter);
+    this.filter = new Filter(null, 900000, 435000, 30000, 7500);
+    this.filterService.updateFilter(this.filter);
   }
 
 

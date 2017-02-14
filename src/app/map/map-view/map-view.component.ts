@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, EventEmitter, Input, Output } from '@ang
 
 import { EsriLoaderService } from 'angular2-esri-loader';
 import { DataService } from '../../shared/services/data.service';
+import {FilterService } from '../../shared/services/filter.service';
 
 import { Area } from '../../shared/models/area';
 import { Filter } from '../../shared/models/filter';
@@ -19,7 +20,9 @@ export class MapViewComponent implements OnInit {
   @Input() webmapId: string;
   @Output() onAreaChanged = new EventEmitter();
 
-  constructor(private esriLoader: EsriLoaderService, private elRef: ElementRef, private dataService: DataService) { }
+  constructor(private esriLoader: EsriLoaderService, private elRef: ElementRef, private dataService: DataService, private filterService:FilterService) {
+    this.filterService.filterUpdated$.subscribe(response => this.filter(response));
+   }
 
   ngOnInit() {
     this.esriLoader.load({
