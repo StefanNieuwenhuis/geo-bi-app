@@ -11,19 +11,9 @@ import { Filter } from '../shared/models/filter';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  @ViewChild(MapDetailComponent) mapDetailComponent: MapDetailComponent;
-
   webmapId = 'f896be9c355e4f17bcd78543d069f18f';
 
   constructor() { }
 
-  ngOnInit() {}
-
-  setActiveArea(area: Area) {
-    this.mapDetailComponent.area = area;
-  }
-
-  onAreaChanged(event: Area) {
-    this.setActiveArea(event);
-  }
+  ngOnInit() {}  
 }

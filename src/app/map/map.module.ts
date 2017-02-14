@@ -10,11 +10,12 @@ import { MapFilterComponent } from './map-filter/map-filter.component';
 
 import { DataService } from '../shared/services/data.service';
 import { FilterService } from '../shared/services/filter.service';
+import { AreaService } from '../shared/services/area.service';
 
 @NgModule({
     imports: [CommonModule, FormsModule, MapRoutingModule],
     exports: [],
     declarations: [MapComponent, MapViewComponent, MapDetailComponent, MapFilterComponent],
-    providers: [DataService, FilterService],
+    providers: [DataService, FilterService, AreaService],
 })
 export class MapModule { }
