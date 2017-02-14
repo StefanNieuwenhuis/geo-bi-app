@@ -7,13 +7,15 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-      <a class="navbar-brand">{{title}}</a>
+      <a class="navbar-brand">
+        {{title}}
+      </a>
     </div>
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li *ngFor="let item of menuItems" [routerLinkActive]="['active']">
-           <a routerLink="{{item.routerLink}}" routerLinkActive="active">{{item.title}}</a>
+          <a routerLink="{{item.routerLink}}" routerLinkActive="active">{{item.title}}</a>
         </li>
       </ul>
     </div>
