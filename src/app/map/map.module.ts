@@ -8,7 +8,7 @@ import { MapViewComponent } from './map-view/map-view.component';
 import { MapDetailComponent } from './map-detail/map-detail.component';
 import { MapFilterComponent } from './map-filter/map-filter.component';
 
-import { DataService } from '../shared/data.service';
+import { DataService } from '../shared/services/data.service';
 
 @NgModule({
     imports: [CommonModule, FormsModule, MapRoutingModule],

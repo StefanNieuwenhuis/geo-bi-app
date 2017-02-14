@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { DataService } from '../shared/data.service';
-import { Area } from '../shared/area';
+import { DataService } from '../shared/services/data.service';
+import { Area } from '../shared/models/area';
 import 'rxjs/add/operator/switchMap';
 
 import { ChartModule } from 'angular2-chartjs';
@@ -13,7 +13,6 @@ import { ChartModule } from 'angular2-chartjs';
 })
 export class AreaDetailComponent implements OnInit {
   area: Area;
-
   title: string;
 
   bar = 'bar';

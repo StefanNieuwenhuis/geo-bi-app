@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { EsriLoaderService } from 'angular2-esri-loader';
-import { DataService } from '../../shared/data.service';
+import { DataService } from '../../shared/services/data.service';
 
-import { Filter } from '../../shared/filter';
+import { Filter } from '../../shared/models/filter';
 
 @Component({
   selector: 'app-map-view',

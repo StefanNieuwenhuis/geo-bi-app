@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Filter } from '../../shared/filter';
+import { Filter } from '../../shared/models/filter';
 
 @Component({
   selector: 'app-map-filter',

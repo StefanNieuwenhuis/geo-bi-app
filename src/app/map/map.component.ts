@@ -2,8 +2,8 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { MapViewComponent } from './map-view/map-view.component';
 import { MapDetailComponent } from './map-detail/map-detail.component';
-import { Area } from '../shared/area';
-import { Filter } from '../shared/filter';
+import { Area } from '../shared/models/area';
+import { Filter } from '../shared/models/filter';
 
 @Component({
   selector: 'app-map',

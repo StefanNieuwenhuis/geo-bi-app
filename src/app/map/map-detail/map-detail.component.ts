@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Router} from '@angular/router';
-import { Area } from '../../shared/area';
+import { Area } from '../../shared/models/area';
 
 @Component({
   selector: 'app-map-detail',
