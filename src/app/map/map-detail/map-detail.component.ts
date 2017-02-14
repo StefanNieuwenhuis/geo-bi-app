@@ -16,7 +16,7 @@ export class MapDetailComponent implements OnInit {
   }
 
   gotoDashboard(){
-     this.router.navigate(['/area-detail', this.area.objectid]);
+     this.router.navigate(['/area-detail', this.area.id]);
   }
 
   reset(){

@@ -35,3 +35,15 @@ export interface Area {
     p_hh_z_k: number,
     p_hh_m_k: number
 }
+
+
+export class Area{
+    constructor(
+        public id: number,
+        public name: string,
+        public population: number,
+        public households: number,
+        public popDensity: number,
+        public avgPowerUsage: number
+    ){}
+}

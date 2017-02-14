@@ -1,25 +1,25 @@
 <div class="panel panel-default" *ngIf="area">
     <div class="panel-heading">
-        <h4>{{area.gm_naam}} <button class="close" (click)="reset()"><span>&times;</span></button></h4>
+        <h4>{{area.name}} <button class="close" (click)="reset()"><span>&times;</span></button></h4>
     </div>
     <div class="panel-body">
         <table class="table">
             <tbody>
                 <tr>
                     <td><strong>Population</strong></td>
-                    <td>{{area.aant_inw | number}}</td>
+                    <td>{{area.population | number}}</td>
                 </tr>
                 <tr>
                     <td><strong>Households</strong></td>
-                    <td>{{area.aantal_hh | number}}</td>
+                    <td>{{area.households | number}}</td>
                 </tr>
                 <tr>
                     <td><strong>Population density (per sq. km)</strong></td>
-                    <td>{{area.bev_dichth | number}}</td>
+                    <td>{{area.popDensity | number}}</td>
                 </tr>
                 <tr>
                     <td><strong>Avg. power usage (kWh)</strong></td>
-                    <td>{{area.p_elek_tot | number}}</td>
+                    <td>{{area.avgPowerUsage | number}}</td>
                 </tr>
             </tbody>
         </table>

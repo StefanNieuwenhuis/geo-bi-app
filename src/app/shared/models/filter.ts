@@ -1,7 +1,9 @@
-export interface Filter {
-    name: string,
-    aant_inw: number,
-    aantal_hh: number,
-    bev_dichth: number,
-    p_elek_tot: number
+export class Filter {
+    constructor(
+        public name: string,
+        public population: number,
+        public households: number,
+        public popDensity: number,
+        public avgPowerUsage: number
+    ) { }
 }

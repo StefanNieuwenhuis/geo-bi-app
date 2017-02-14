@@ -7,20 +7,20 @@
                 <input type="text" name="name" class="form-control" [value]="" [(ngModel)]="filter.name" placeholder="Name of the area" />
             </div>            
             <div class="form-group">
-                <label>{{aant_inw.display}} <span class="badge">current: {{filter.aant_inw | number}}</span></label>
-                <input type="range" name="aant_inw" [(ngModel)]="filter.aant_inw" [min]="aant_inw.min" [max]="aant_inw.max" [step]="aant_inw.step" />
+                <label>{{population.display}} <span class="badge">current: {{filter.population | number}}</span></label>
+                <input type="range" name="population" [(ngModel)]="filter.population" [min]="population.min" [max]="population.max" [step]="population.step" />
             </div>
             <div class="form-group">
-                <label>{{aantal_hh.display}} <span class="badge">current: {{filter.aantal_hh | number}}</span></label>
-                <input type="range" name="aantal_hh" [(ngModel)]="filter.aantal_hh" [min]="aantal_hh.min" [max]="aantal_hh.max" [step]="aantal_hh.step" />
+                <label>{{households.display}} <span class="badge">current: {{filter.households | number}}</span></label>
+                <input type="range" name="households" [(ngModel)]="filter.households" [min]="households.min" [max]="households.max" [step]="households.step" />
             </div>
             <div class="form-group">
-                <label>{{bev_dichth.display}} <span class="badge">current: {{filter.bev_dichth | number}}</span></label>
-                <input type="range" name="bev_dichth" [(ngModel)]="filter.bev_dichth" [min]="bev_dichth.min" [max]="bev_dichth.max" [step]="bev_dichth.step" />
+                <label>{{popDensity.display}} <span class="badge">current: {{filter.popDensity | number}}</span></label>
+                <input type="range" name="popDensity" [(ngModel)]="filter.popDensity" [min]="popDensity.min" [max]="popDensity.max" [step]="popDensity.step" />
             </div>
             <div class="form-group">
-                <label>{{p_elek_tot.display}} <span class="badge">current: {{filter.p_elek_tot | number}}</span></label>
-                <input type="range" name="p_elek_tot" [(ngModel)]="filter.p_elek_tot" [min]="p_elek_tot.min" [max]="p_elek_tot.max" [step]="p_elek_tot.step" />
+                <label>{{avgPowerUsage.display}} <span class="badge">current: {{filter.avgPowerUsage | number}}</span></label>
+                <input type="range" name="avgPowerUsage" [(ngModel)]="filter.avgPowerUsage" [min]="avgPowerUsage.min" [max]="avgPowerUsage.max" [step]="avgPowerUsage.step" />
             </div>
             <button class="btn btn-default" (click)="save(f.valid, f.value)">Filter</button>
             <button class="btn btn-danger" (click)="reset()">Reset</button>

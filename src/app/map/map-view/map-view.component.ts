@@ -1,7 +1,9 @@
 import { Component, OnInit, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+
 import { EsriLoaderService } from 'angular2-esri-loader';
 import { DataService } from '../../shared/services/data.service';
 
+import { Area } from '../../shared/models/area';
 import { Filter } from '../../shared/models/filter';
 
 @Component({
@@ -17,7 +19,7 @@ export class MapViewComponent implements OnInit {
   @Input() webmapId: string;
   @Output() onAreaChanged = new EventEmitter();
 
-  constructor(private esriLoader: EsriLoaderService, private elRef: ElementRef, private dataService:DataService) { }
+  constructor(private esriLoader: EsriLoaderService, private elRef: ElementRef, private dataService: DataService) { }
 
   ngOnInit() {
     this.esriLoader.load({
@@ -40,15 +42,18 @@ export class MapViewComponent implements OnInit {
   }
 
   onViewClicked(event) {
-    let mapPoint = JSON.stringify({x:event.mapPoint.x, y:event.mapPoint.y});
-    this.dataService.getTownByLocation(mapPoint).subscribe(response => this.onAreaChanged.emit(response[0].attributes));
+    let mapPoint = JSON.stringify({ x: event.mapPoint.x, y: event.mapPoint.y });
+    this.dataService.getTownByLocation(mapPoint).subscribe(response => { this.onAreaChanged.emit(response[0]) },
+      err => console.error('Something went wrong'),
+      () => console.log('Area loaded')
+    );
   }
 
   filter(filter: Filter) {
     let layer = this.webmap.findLayerById('CBS_WijkenBuurten_2011_4172').findSublayerById(2);
     let query = layer.createQuery();
 
-    query.where = `aant_inw <= ${filter.aant_inw} AND aantal_hh <= ${filter.aantal_hh} AND bev_dichth <= ${filter.bev_dichth} AND p_elek_tot <= ${filter.p_elek_tot}`;
+    query.where = `aant_inw <= ${filter.population} AND aantal_hh <= ${filter.households} AND bev_dichth <= ${filter.popDensity} AND p_elek_tot <= ${filter.avgPowerUsage}`;
     if (filter.name) query.where += ` AND gm_naam LIKE '%${filter.name}%'`;
 
     layer.definitionExpression = query.where;
