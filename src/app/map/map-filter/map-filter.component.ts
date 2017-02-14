@@ -19,13 +19,7 @@ export class MapFilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.filter = {
-      name: null,
-      population: 900000,
-      households: 435000,
-      popDensity: 30000,
-      avgPowerUsage: 7500
-    };
+    this.filter = new Filter(null, 900000, 435000, 30000, 7500);    
   }
 
   save(isValid: boolean, f: Filter): void {
@@ -34,13 +28,7 @@ export class MapFilterComponent implements OnInit {
   }
 
   reset() {
-    this.filter = {
-      name: null,
-      population: 900000,
-      households: 435000,
-      popDensity: 30000,
-      avgPowerUsage: 7500
-    };
+    this.filter = new Filter(null, 900000, 435000, 30000, 7500);    
     this.onFilterChanged.emit(this.filter);
   }
 

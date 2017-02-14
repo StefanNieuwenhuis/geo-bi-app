@@ -52,7 +52,7 @@ export class MapViewComponent implements OnInit {
   filter(filter: Filter) {
     let layer = this.webmap.findLayerById('CBS_WijkenBuurten_2011_4172').findSublayerById(2);
     let query = layer.createQuery();
-
+    
     query.where = `aant_inw <= ${filter.population} AND aantal_hh <= ${filter.households} AND bev_dichth <= ${filter.popDensity} AND p_elek_tot <= ${filter.avgPowerUsage}`;
     if (filter.name) query.where += ` AND gm_naam LIKE '%${filter.name}%'`;
 

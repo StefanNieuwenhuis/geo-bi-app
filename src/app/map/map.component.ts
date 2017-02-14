@@ -18,9 +18,7 @@ export class MapComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   setActiveArea(area: Area) {
     this.mapDetailComponent.area = area;
@@ -33,5 +31,4 @@ export class MapComponent implements OnInit {
   onFilterChanged(event: Filter) {
     this.mapViewComponent.filter(event);
   }
-
 }

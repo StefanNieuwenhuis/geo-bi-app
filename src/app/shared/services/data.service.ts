@@ -28,7 +28,14 @@ export class DataService {
     return this.http.get(`${this.baseURL}/towns/geo/${point}`)
       .map((response: Response) => response.json()
         .map(feature =>
-          new Area(feature.attributes.objectid, feature.attributes.gm_naam, feature.attributes.aant_inw, feature.attributes.aantal_hh, feature.attributes.bev_dichth, feature.attributes.p_elek_tot)
+          new Area(
+            feature.attributes.objectid,
+            feature.attributes.gm_naam,
+            feature.attributes.aant_inw,
+            feature.attributes.aantal_hh,
+            feature.attributes.bev_dichth,
+            feature.attributes.p_elek_tot
+          )
         )
       )
       .catch(error => this.handleError(error));
