@@ -19,4 +19,8 @@ export class MapDetailComponent implements OnInit {
      this.router.navigate(['/area-detail', this.area.objectid]);
   }
 
+  reset(){
+    this.area = null;
+  }
+
 }
