@@ -9,7 +9,7 @@ export class SpinnerService {
 
   constructor() { }
 
-  updateVisibility(status: boolean) {
+  updateStatus(status: boolean) {
     this.statusSource.next(status);
   }
 

@@ -4,6 +4,7 @@ import { EsriLoaderService } from 'angular2-esri-loader';
 import { DataService } from '../../shared/services/data.service';
 import { FilterService } from '../../shared/services/filter.service';
 import { AreaService } from '../../shared/services/area.service';
+import { SpinnerService } from '../../shared/services/spinner.service';
 
 import { Area } from '../../shared/models/area';
 import { Filter } from '../../shared/models/filter';
@@ -20,7 +21,14 @@ export class MapViewComponent implements OnInit {
 
   @Input() webmapId: string;
 
-  constructor(private esriLoader: EsriLoaderService, private elRef: ElementRef, private dataService: DataService, private filterService: FilterService, private areaService: AreaService) {
+  constructor(
+    private esriLoader: EsriLoaderService,
+    private elRef: ElementRef,
+    private dataService: DataService,
+    private filterService: FilterService,
+    private areaService: AreaService,
+    private spinnerService: SpinnerService
+  ) {
     this.filterService.filterUpdated$.subscribe(response => this.filter(response));
   }
 
@@ -45,12 +53,17 @@ export class MapViewComponent implements OnInit {
   }
 
   onViewClicked(event) {
+    this.spinnerService.updateStatus(true);
     let mapPoint = JSON.stringify({ x: event.mapPoint.x, y: event.mapPoint.y });
     this.dataService.getTownByLocation(mapPoint)
-      .subscribe(response => this.areaService.updateArea(response[0]));
+      .subscribe(response => {
+        this.areaService.updateArea(response[0])
+        this.spinnerService.updateStatus(false);
+      });
   }
 
   filter(filter: Filter) {
+    this.spinnerService.updateStatus(true);
     let layer = this.webmap.findLayerById('CBS_WijkenBuurten_2011_4172').findSublayerById(2);
     let query = layer.createQuery();
 
@@ -58,7 +71,7 @@ export class MapViewComponent implements OnInit {
     if (filter.name) query.where += ` AND gm_naam LIKE '%${filter.name}%'`;
 
     layer.definitionExpression = query.where;
-    layer.queryFeatures(query);
+    layer.queryFeatures(query).then(response => this.spinnerService.updateStatus(false));
   }
 
 }
