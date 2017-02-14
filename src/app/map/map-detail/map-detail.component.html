@@ -3,7 +3,26 @@
         <h4>{{area.gm_naam}} <button class="close" (click)="reset()"><span>&times;</span></button></h4>
     </div>
     <div class="panel-body">
-        <!--<pre>{{area | json}}</pre>-->
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td><strong>Population</strong></td>
+                    <td>{{area.aant_inw | number}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Households</strong></td>
+                    <td>{{area.aantal_hh | number}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Population density (per sq. km)</strong></td>
+                    <td>{{area.bev_dichth | number}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Avg. power usage (kWh)</strong></td>
+                    <td>{{area.p_elek_tot | number}}</td>
+                </tr>
+            </tbody>
+        </table>
         <button class="btn btn-success pull-right" (click)="gotoDashboard()">Dashboard</button>
     </div>
 </div>
