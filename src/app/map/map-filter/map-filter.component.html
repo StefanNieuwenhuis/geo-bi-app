@@ -22,6 +22,10 @@
                 <label>{{avgPowerUsage.display}} <span class="badge">current: {{filter.avgPowerUsage | number}}</span></label>
                 <input type="range" name="avgPowerUsage" [(ngModel)]="filter.avgPowerUsage" [min]="avgPowerUsage.min" [max]="avgPowerUsage.max" [step]="avgPowerUsage.step" />
             </div>
+            <div class="form-group">
+                <label>{{year.display}} <span class="badge">current: {{filter.year}}</span></label>
+                <input type="range" name="year" [(ngModel)]="filter.year" [min]="year.min" [max]="year.max" [step]="year.step" />
+            </div>
             <button class="btn btn-default" (click)="save(f.valid, f.value)">Filter</button>
             <button class="btn btn-danger" (click)="reset()">Reset</button>
         </form>

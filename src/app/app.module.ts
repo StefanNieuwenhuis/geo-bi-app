@@ -3,20 +3,21 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { LoginModule } from './login/login.module';
 import { MapModule } from './map/map.module';
 import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
 
-
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
+    LoginModule,
     CoreModule,
     MapModule
   ],

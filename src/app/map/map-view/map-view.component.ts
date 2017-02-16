@@ -74,4 +74,16 @@ export class MapViewComponent implements OnInit {
     layer.queryFeatures(query).then(response => this.spinnerService.updateStatus(false));
   }
 
+  updateRenderer(field: string){
+    this.spinnerService.updateStatus(true);
+    let layer = this.webmap.findLayerById('CBS_WijkenBuurten_2011_4172').findSublayerById(2);
+    let query = layer.createQuery();
+    let renderer = layer.renderer.clone();
+
+    renderer.field = field;
+    layer.renderer = renderer;
+
+    layer.queryFeatures(query).then(response => this.spinnerService.updateStatus(false));
+  }
+
 }

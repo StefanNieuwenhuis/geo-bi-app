@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Login</h2>
+    <p>{{message}}</p>
+    <button (click)="login()" *ngIf="!authService.isLoggedIn">Login</button>
+    <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+  </div>
+</div>

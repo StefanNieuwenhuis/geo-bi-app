@@ -12,10 +12,12 @@ import { DataService } from '../shared/services/data.service';
 import { FilterService } from '../shared/services/filter.service';
 import { AreaService } from '../shared/services/area.service';
 
+import {AuthGuard} from '../shared/guards/auth-guard.service';
+
 @NgModule({
     imports: [CommonModule, FormsModule, MapRoutingModule],
     exports: [],
     declarations: [MapComponent, MapViewComponent, MapDetailComponent, MapFilterComponent],
-    providers: [DataService, FilterService, AreaService],
+    providers: [AuthGuard, DataService, FilterService, AreaService],
 })
 export class MapModule { }

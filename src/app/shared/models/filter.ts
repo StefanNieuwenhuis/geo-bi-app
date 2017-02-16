@@ -4,6 +4,7 @@ export class Filter {
         public population: number,
         public households: number,
         public popDensity: number,
-        public avgPowerUsage: number
+        public avgPowerUsage: number,
+        public year: number
     ) { }
 }

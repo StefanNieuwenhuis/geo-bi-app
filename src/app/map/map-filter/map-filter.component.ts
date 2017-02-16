@@ -15,11 +15,12 @@ export class MapFilterComponent implements OnInit {
   households = { "display": "Households", "min": 0, "max": 435000, "step": 1000 };
   popDensity = { "display": "Population density (per sq. km)", "min": 0, "max": 30000, "step": 100 };
   avgPowerUsage = { "display": "Avg. power usage (kWh)", "min": 0, "max": 7500, "step": 10 };
+  year = { "display": "Year", "min": 2010, "max": 2015, "step": 1 };
 
   constructor(private filterService: FilterService) { }
 
   ngOnInit() {
-    this.filter = new Filter(null, 900000, 435000, 30000, 7500);
+    this.filter = new Filter(null, 900000, 435000, 30000, 7500, 2015);
   }
 
   save(isValid: boolean, f: Filter): void {
@@ -28,7 +29,7 @@ export class MapFilterComponent implements OnInit {
   }
 
   reset() {
-    this.filter = new Filter(null, 900000, 435000, 30000, 7500);
+    this.filter = new Filter(null, 900000, 435000, 30000, 7500, 2015);
     this.filterService.updateFilter(this.filter);
   }
 
