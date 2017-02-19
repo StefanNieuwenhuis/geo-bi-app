@@ -1,45 +1,48 @@
 <div class="container-fluid" *ngIf="area">
   <div class="row">
-    <h1>{{title}}</h1>
-    <p>Click on a topic to learn more</p>
-  </div>
+    <div class="col-xs-12">
+      <h1>{{title}}</h1>
+      <p>Click on a header to learn more</p>
+    </div>
+    <div class="col-xs-12">
+      <div class="panel-group">
+        <app-accordion heading="Population" [isOpen]="false">
+          <div class="col-xs-4">
+            <h4 class="text-center">Male vs. Female</h4>
+            <chart [type]="horizontalBar" [data]="populationData" [options]="horizontalBarOptions"></chart>
+          </div>
+          <div class="col-xs-4">
+            <h4 class="text-center">Age composition</h4>
+            <chart [type]="bar" [data]="ageData" [options]="options"></chart>
+          </div>
+          <div class="col-xs-4">
+            <h4 class="text-center">Civil status</h4>
+            <chart [type]="bar" [data]="civilStatusData" [options]="options"></chart>
+          </div>
+          <div class="col-xs-4">
+            <h4 class="text-center">Birth vs. mortality rate (absolute)</h4>
+            <chart [type]="horizontalBar" [data]="lifeData" [options]="horizontalBarOptions"></chart>
+          </div>
+          <div class="col-xs-4">
+            <h4>Households composition</h4>
+            <chart [type]="pie" [data]="householdsData" [options]="barOptions" style="width: 75%; height: 50%;"></chart>
+          </div>
+        </app-accordion>
 
-  <div class="panel-group">
-    <app-accordion heading="Population" [isOpen]="true">
-      <div class="col-xs-4">
-        <h4 class="text-center">Male vs. Female</h4>
-        <chart [type]="horizontalBar" [data]="populationData" [options]="horizontalBarOptions"></chart>
-      </div>
-      <div class="col-xs-4">
-        <h4 class="text-center">Age composition</h4>
-        <chart [type]="bar" [data]="ageData" [options]="options"></chart>
-      </div>
-      <div class="col-xs-4">
-        <h4 class="text-center">Civil status</h4>
-        <chart [type]="bar" [data]="civilStatusData" [options]="options"></chart>
-      </div>
-      <div class="col-xs-4">
-        <h4 class="text-center">Birth vs. mortality rate (absolute)</h4>
-        <chart [type]="horizontalBar" [data]="lifeData" [options]="horizontalBarOptions"></chart>
-      </div>
-      <div class="col-xs-4">
-        <h4>Households composition</h4>
-        <chart [type]="pie" [data]="householdsData" [options]="barOptions" style="width: 75%; height: 50%;"></chart>
-      </div>
-    </app-accordion>
+        <app-accordion heading="Energy" [isOpen]="false">
+          <div class="col-xs-4">
+            <h4 class="text-center">Power usage</h4>
+            <chart [type]="bar" [data]="powerData" [options]="options"></chart>
+          </div>
+        </app-accordion>
 
-    <app-accordion heading="Energy" [isOpen]="false">
-      <div class="col-xs-4">
-        <h4 class="text-center">Power usage</h4>
-        <chart [type]="bar" [data]="powerData" [options]="options"></chart>
+        <app-accordion heading="Land usage" [isOpen]="false">
+          <div class="col-xs-4">
+            <h4 class="text-center">Land vs. Water</h4>
+            <chart [type]="pie" [data]="areaData" [options]="barOptions"></chart>
+          </div>
+        </app-accordion>
       </div>
-    </app-accordion>
-
-    <app-accordion heading="Land usage" [isOpen]="false">
-      <div class="col-xs-4">
-        <h4 class="text-center">Land vs. Water</h4>
-        <chart [type]="pie" [data]="areaData" [options]="barOptions"></chart>
-      </div>
-    </app-accordion>
+    </div>
   </div>
 </div>

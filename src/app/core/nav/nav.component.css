@@ -1,4 +1,15 @@
 .navbar{ background: white;}
+.navbar-default{ border: 0;}
+.navbar-brand {
+    font-family: 'Crete Round', serif;
+    font-size: 40px;
+}
 
-.navbar-brand img {width: 32px;
-height: 32px;}
+a{ 
+    border-radius: 5px;
+}
+a.active{ 
+    font-weight: bold;
+    border: 1px solid lightgray;
+    background: white !important;
+    }

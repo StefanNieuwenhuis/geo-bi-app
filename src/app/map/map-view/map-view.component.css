@@ -1,4 +1,8 @@
 #viewDiv{
+    
+    height: 100%;
     width: 100%;
-    height: 750px;
+
 }
+
+div{ height: 100%;}
